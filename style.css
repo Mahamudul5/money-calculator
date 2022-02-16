@@ -3,3 +3,10 @@ body{
     margin: 0;
     padding: 0;
 }
+h1{
+    color:cornflowerblue;
+}
+.main-container{
+    background-color:whitesmoke;
+    height: 800px;
+}

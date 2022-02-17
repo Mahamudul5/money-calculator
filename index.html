@@ -36,7 +36,7 @@
                 <!-- This is all input field  -->
                 <div class="col-sm-12 col-lg-6">
 
-                    <h2 class="text-center">Income</h2>
+                    <h2 class="text-center mt-3">Income</h2>
                     <label for="income-input">Income: </label>
                     <input id="income-input" type="text"><br>
                     <h2 class="text-center mt-3 mb-3">Expenses</h2>
@@ -49,17 +49,28 @@
                     <div class="d-flex justify-content-center">
                         <button id="Calculate-btn" class="btn btn-info mb-5 mt-3 px-5 ">Calculate</button>
                     </div>
-                    <h3 class="text-center ">Total Expenses: <span id="total-expences">5000</span> </h3>
-                    <h3 class="text-center mt-5 ">Balance: <span id="left-balance">2000</span> </h3>
-                    <label for="income">Save: </label>
-                    <input id="income" type="text"><span> % </span><button class="btn btn-info">Save</button>
-                    <h3 class="text-center mt-5">Saving Amount:<span> 5000</span> </h3>
-                    <h3 class="text-center mt-5 ">Remaining Balance:<span> 2000</span> </h3>
+                    <div class="row">
+                        <h3 class="text-center col-sm-12 col-lg-12 ">Total Expenses: <span
+                                id="total-expences">0000</span> </h3>
+                        <h3 class="text-center mt-5 col-sm-12 col-lg-12">Balance: <span id="left-balance">0000</span>
+                        </h3>
+                        <label for="saving-input">Save: </label>
+                        <input id="saving-input" type="text"><span class="text-center"> % </span>
+                        <button id="save-btn" class="btn btn-info ">Save</button>
+
+
+
+                        <h3 class="text-center mt-5 col-sm-12 col-lg-12">Saving Amount:<span id="saving-amount">
+                                0000</span> </h3>
+                        <h3 class="text-center mt-5 col-sm-12 col-lg-12">Remaining Balance:<span
+                                id="remaining-last-balance">0000</span>
+                        </h3>
+
+
+                    </div>
 
                 </div>
-
             </div>
-        </div>
     </section>
     <!-- js file added  -->
     <script src="js/app.js">

@@ -1,62 +1,74 @@
-// get input from income field and sent message for error.
-
-document.getElementById('Calculate-btn').addEventListener('click', function inputIncome() {
-    const myIncome = document.getElementById('income-input');
-    let totaIncome = parseFloat(myIncome.value);
+document.getElementById('main-div').addEventListener('click', function (event) {
 
 
+    document.getElementById('Calculate-btn').addEventListener('click', function () {
+
+
+        const mainBalance = document.getElementById('income-input');
+        const myIncome = parseInt(mainBalance.value);
+        // Error handling start
+        if (isNaN(myIncome) || myIncome <= 0 || myIncome === '') {
+            alert('Please enter a valid number');
+        };
+
+        const food = document.getElementById('food');
+        const myFood = parseInt(food.value);
+        if (isNaN(myFood) || myFood <= 0 || myFood === '') {
+            alert('Please enter a valid number in *Food');
+        };
+
+        const rent = document.getElementById('rent');
+        const myRent = parseInt(rent.value);
+        if (isNaN(myRent) || myRent <= 0 || myRent === '') {
+            alert('Please enter a valid number in *Rent');
+        };
+        const cloths = document.getElementById('cloths');
+        const myCloths = parseInt(cloths.value);
+        if (isNaN(myCloths) || myCloths <= 0 || myCloths === '') {
+            alert('Please enter a valid number in *Cloths');
+        };
+        const totalExpense = myFood + myRent + myCloths;
+        const totalExpenseField = document.getElementById('total-expences')
+        totalExpenseField.innerText = totalExpense;
+        const balance = myIncome - totalExpense;
+        const balanceFeild = document.getElementById('left-balance');
+        balanceFeild.innerText = balance;
+        document.getElementById('save-btn').addEventListener('click', function () {
+            const saveInputField = document.getElementById('saving-input');
+            const saving = parseInt(saveInputField.value);
+            if (isNaN(saving) || saving <= 0 || saving === '') {
+                alert('Please enter a valid number in *Saving');
+            };
+            const finalSaving = (myIncome * saving) / 100;
+            if (finalSaving > balance) {
+                alert('ups!!! you dont have enough money to saving');
+            };
+            const savingAmountField = document.getElementById('saving-amount');
+            savingAmountField.innerText = finalSaving;
+            const totalExpenseAndFinalSaving = totalExpense + finalSaving;
+            const remainningAmount = myIncome - totalExpenseAndFinalSaving;
+            const remainingBalanceField = document.getElementById('remaining-last-balance');
+            remainingBalanceField.innerText = remainningAmount;
+
+            clearInputValue(food);
+            clearInputValue(rent);
+            clearInputValue(cloths);
+
+
+
+
+
+        });
+
+
+    });
+
+
+
+
+    event.stopPropagation();
 });
 
-document.getElementById('Calculate-btn').addEventListener('click', function inputValidation() {
-    const myfood = document.getElementById('food');
-    let totalFoodExpense = myfood.value;
-    let x = parseInt(totalFoodExpense);
-    const myRent = document.getElementById('rent');
-    let totalRentExpense = myRent.value;
-    let y = parseInt(totalRentExpense);
-    const myCloths = document.getElementById('cloths');
-    let totalClothsExpense = myCloths.value;
-    let z = parseInt(totalClothsExpense);
-    const myIncome = document.getElementById('income-input');
-    let totaIncome = parseFloat(myIncome.value);
-    let total = x + y + z;
-    let left = totaIncome - total;
-    console.log(left);
-    let expencesFeild = document.getElementById('total-expences');
-    expencesFeild.innerText = total;
-    let balanceField = document.getElementById('left-balance');
-    balanceField.innerText = left;
-
-
-
-});
-document.getElementById('save-btn').addEventListener('click', function () {
-    const savingInput = document.getElementById('saving-input');
-    const myIncome = document.getElementById('income-input');
-    let totaIncome = parseFloat(myIncome.value);
-    let savingParsentage = parseInt(savingInput.value);
-
-    let finalSaving = (totaIncome * savingParsentage) / 100;
-    console.log(finalSaving);
-    const savingAmount = document.getElementById('saving-amount');
-    savingAmount.innerText = finalSaving;
-    const remainingAmountField = document.getElementById('remaining-last-balance');
-    let forFood = document.getElementById('food');
-    let expenseForFood = parseInt(forFood.value);
-    let forRent = document.getElementById('rent');
-    let expenseForRent = parseInt(forRent.value);
-    let forCloths = document.getElementById('cloths');
-    let expenseForCloths = parseInt(forCloths.value);
-    let inTotalExpense = expenseForFood + expenseForRent + expenseForCloths;
-    console.log(inTotalExpense);
-    console.log(totaIncome);
-    console.log(finalSaving);
-
-    const finalSavingWithIntotalExpense = finalSaving + inTotalExpense;
-    const remainningAmount = totaIncome - finalSavingWithIntotalExpense;
-    remainingAmountField.innerText = remainningAmount;
-
-
-});
-
-
+function clearInputValue(inputName) {
+    inputName.value = '';
+};

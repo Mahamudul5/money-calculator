@@ -4,13 +4,16 @@ body{
     margin: 0;
     padding: 0;
 }
+/* set heading color  */
 h1{
     font-weight: bolder;
     color:cornflowerblue;
 }
+/* set bolder  */
 h3{
     font-weight: bold;
 }
+/* to fixed alignment of input field  */
 label{
     width: 150px;
     display: inline-block;
@@ -18,7 +21,7 @@ label{
     margin: 10px;
 
 }
-
+/* simply set a backgroundColor and Height  */
 .main-container{
     background-color:whitesmoke;
     height: 800px;
